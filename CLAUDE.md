@@ -25,6 +25,15 @@ npm run preview   # Preview production build
 
 Worker base URL is hardcoded in both components: `https://smmall-uploader.cybersoulja.workers.dev`
 
+## Deployment
+
+Deployed to Cloudflare Pages: `https://smmall-uploader-ui.pages.dev`
+
+```bash
+npm run build
+wrangler pages deploy dist --project-name smmall-uploader-ui
+```
+
 ## Backend
 
 Worker lives at `../smmall-uploader` (repo: `cybersoulja/smmall-uploader`). Endpoints:
