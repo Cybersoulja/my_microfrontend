@@ -1,0 +1,153 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --border: #2a2a3d;
+  --accent: #00f5ff;
+  --accent2: #ff00aa;
+  --text: #e0e0f0;
+  --muted: #6b6b8a;
+  --success: #00ff88;
+  --error: #ff3366;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Courier New', monospace;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent);
+  margin-bottom: 32px;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+nav button {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 6px 18px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+nav button.active, nav button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+input, textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+  margin-bottom: 18px;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 6px rgba(0, 245, 255, 0.2);
+}
+
+input[type="file"] { padding: 8px; cursor: pointer; }
+textarea { resize: vertical; min-height: 80px; }
+
+button.submit {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 28px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 0 8px rgba(0, 245, 255, 0.2);
+}
+
+button.submit:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 18px var(--accent);
+}
+
+button.submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.msg {
+  margin-top: 16px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  border-left: 3px solid;
+}
+.msg.success { border-color: var(--success); color: var(--success); background: rgba(0,255,136,0.05); }
+.msg.error   { border-color: var(--error);   color: var(--error);   background: rgba(255,51,102,0.05); }
+
+.history-empty { color: var(--muted); font-size: 0.85rem; padding: 20px 0; }
+
+.record {
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: var(--surface);
+  transition: border-color 0.15s;
+}
+.record:hover { border-color: var(--accent2); }
+
+.record-name { font-size: 0.95rem; color: var(--accent); margin-bottom: 6px; }
+
+.record-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.record-meta .val { color: var(--text); }
+
+.spinner {
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  animation: blink 1s step-start infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
